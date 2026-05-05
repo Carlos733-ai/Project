@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Focus Cloud</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: #ff9900;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .corner-cloud {
+            position: absolute;
+            width: clamp(100px, 15vw, 200px);
+            height: clamp(100px, 15vw, 200px);
+            background-color: white;
+            mask-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.5,19c-3,0-5.5-2.5-5.5-5.5c0-0.2,0-0.4,0-0.6C10.8,13.7,9.5,14,8,14c-3.3,0-6-2.7-6-6s2.7-6,6-6c1.2,0,2.3,0.4,3.2,1c1.1-2.4,3.5-4,6.3-4c3.9,0,7,3.1,7,7c0,0.4,0,0.8-0.1,1.2C22.6,8.4,24,10.5,24,13C24,16.3,21.3,19,17.5,19z"/></svg>');
+            mask-size: contain;
+            mask-repeat: no-repeat;
+            -webkit-mask-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.5,19c-3,0-5.5-2.5-5.5-5.5c0-0.2,0-0.4,0-0.6C10.8,13.7,9.5,14,8,14c-3.3,0-6-2.7-6-6s2.7-6,6-6c1.2,0,2.3,0.4,3.2,1c1.1-2.4,3.5-4,6.3-4c3.9,0,7,3.1,7,7c0,0.4,0,0.8-0.1,1.2C22.6,8.4,24,10.5,24,13C24,16.3,21.3,19,17.5,19z"/></svg>');
+            -webkit-mask-size: contain;
+            -webkit-mask-repeat: no-repeat;
+            z-index: 10;
+        }
+
+        .c1rotate-tl { top: -20px; left: -20px; transform: rotate(0deg); }
+        .c1rotate-tr { top: -20px; right: -20px; transform: rotate(90deg); }
+        .c1rotate-br { bottom: -20px; right: -20px; transform: rotate(180deg); }
+        .c1rotate-bl { bottom: -20px; left: -20px; transform: rotate(270deg); }
+
+        .cloud-container {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+        }
+
+        .cloud-box {
+            position: absolute;
+            background-color: #add8e6;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            overflow: hidden;
+            box-shadow: inset -10px -10px 20px rgba(0,0,0,0.05), 0 10px 15px rgba(0,0,0,0.1);
+        }
+
+        .mc-big {
+            width: 450px;
+            height: 280px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 5;
+        }
+
+        .mc-med {
+            width: 280px;
+            height: 180px;
+            top: 15%;
+            left: 15%;
+        }
+
+        .mc-small {
+            width: 180px;
+            height: 120px;
+            bottom: 15%;
+            right: 15%;
+        }
+
+        .mc-img {
+            width: 250px;
+            height: 200px;
+            bottom: 15%;
+            left: 15%;
+        }
+
+        .mc-extra {
+            width: 220px;
+            height: 150px;
+            top: 15%;
+            right: 15%;
+        }
+
+        .cloud-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        h1 { font-size: 2.2rem; color: #1a252f; margin-bottom: 8px; padding: 0 20px; }
+        p { font-size: 1.1rem; color: #2c3e50; padding: 0 30px; }
+    </style>
+</head>
+<body>
+
+    <div class="corner-cloud c1rotate-tl"></div>
+    <div class="corner-cloud c1rotate-tr"></div>
+    <div class="corner-cloud c1rotate-br"></div>
+    <div class="corner-cloud c1rotate-bl"></div>
+
+    <div class="cloud-container">
+        
+        <section class="cloud-box mc-big">
+            <h1>Digital Silence</h1>
+            <p>Your time is the most valuable thing you own.</p>
+        </section>
+
+        <section class="cloud-box mc-med">
+            <p>Focus Active</p>
+        </section>
+
+        <section class="cloud-box mc-extra">
+            <p>Leave the scroll behind.</p>
+        </section>
+
+        <section class="cloud-box mc-img">
+            <img src="images/test.png" alt="Cloud Content" class="cloud-image">
+        </section>
+
+        <section class="cloud-box mc-small">
+            <p>Stay Human.</p>
+        </section>
+
+    </div>
+
+</body>
+</html>
