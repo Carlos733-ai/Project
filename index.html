@@ -34,9 +34,9 @@ body{
         linear-gradient(
             to bottom,
             #ffb15e 0%,
-            #ff914d 25%,
-            #ff7a59 45%,
-            #4b8dff 78%,
+            #ff914d 18%,
+            #ff7a59 30%,
+            #4b8dff 72%,
             #1f5fd1 100%
         );
 }
@@ -67,11 +67,13 @@ body::before{
 
 .sun{
     position:absolute;
-    top:70px;
-    left:90px;
+    top:50%;
+    left:50%;
 
-    width:170px;
-    height:170px;
+    transform:translate(-50%, -50%);
+
+    width:190px;
+    height:190px;
     border-radius:50%;
 
     background:
@@ -79,7 +81,7 @@ body::before{
 
     box-shadow:
         0 0 40px rgba(255,220,100,.7),
-        0 0 100px rgba(255,180,0,.5);
+        0 0 120px rgba(255,180,0,.55);
 
     z-index:1;
 }
@@ -99,13 +101,7 @@ body::before{
     background:
         linear-gradient(to bottom, #dff4ff 0%, #b9e4ff 100%);
     border-radius:50%;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
     overflow:hidden;
-    padding:20px;
 
     box-shadow:
         inset -15px -15px 25px rgba(0,0,0,0.06),
@@ -319,22 +315,6 @@ body::before{
     object-fit:cover;
 }
 
-/* ✍️ TEXT */
-
-h1{
-    font-size:2.4rem;
-    color:#203040;
-    margin-bottom:8px;
-    text-shadow:0 2px 5px rgba(255,255,255,0.7);
-}
-
-p{
-    font-size:1.05rem;
-    color:#304050;
-    max-width:90%;
-    line-height:1.5;
-}
-
 /* 📱 MOBILE */
 
 @media(max-width:900px){
@@ -370,44 +350,23 @@ p{
 
 <div class="cloud-container">
 
-    <section class="cloud-box mc-big">
-        <h1>Big Text</h1>
-        <p>
-            Small Text
-        </p>
-    </section>
+    <section class="cloud-box mc-big"></section>
 
-    <section class="cloud-box mc-med horizontal-cloud">
-        <p>Text</p>
-    </section>
+    <section class="cloud-box mc-med horizontal-cloud"></section>
 
-    <section class="cloud-box mc-extra horizontal-cloud">
-        <p>Text</p>
-    </section>
+    <section class="cloud-box mc-extra horizontal-cloud"></section>
 
     <section class="cloud-box mc-img">
         <img src="images/Test.png" alt="Image" class="cloud-image">
     </section>
 
-    <section class="cloud-box mc-small">
-        <p>Text</p>
-    </section>
+    <section class="cloud-box mc-small"></section>
 
-    <!-- ↕️ VERTICAL CLOUDS -->
+    <section class="cloud-box vertical-cloud v-cloud1"></section>
 
-    <section class="cloud-box vertical-cloud v-cloud1">
-     <p>Tall Cloud</p>
-    </section>
+    <section class="cloud-box vertical-cloud v-cloud2"></section>
 
-    <section class="cloud-box vertical-cloud v-cloud2">
-               <p>Tall Cloud</p>
-    </section>
-
-    <!-- ↔️ HORIZONTAL CLOUDS -->
-
-    <section class="cloud-box horizontal-cloud h-cloud1">
-               <p>Long Cloud</p>
-    </section>
+    <section class="cloud-box horizontal-cloud h-cloud1"></section>
 
     <section class="cloud-box horizontal-cloud h-cloud2">
         <img src="images/Test.png" alt="Image" class="cloud-image">
