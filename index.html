@@ -22,6 +22,7 @@ html,body{
 }
 
 /* 🌅 SKY */
+
 body{
     position:relative;
     display:flex;
@@ -40,6 +41,7 @@ body{
             #1f5fd1 100%
         );
 }
+
 /* ✨ floating glow dust */
 
 body::before{
@@ -50,7 +52,7 @@ body::before{
         radial-gradient(circle, rgba(255,255,255,0.25) 1px, transparent 1px);
     background-size:40px 40px;
     opacity:.5;
-    animation: sparkleMove 25s linear infinite;
+    animation:sparkleMove 25s linear infinite;
 }
 
 @keyframes sparkleMove{
@@ -66,10 +68,8 @@ body::before{
 
 .sun{
     position:absolute;
-
     top:40px;
     left:50%;
-
     transform:translateX(-50%);
 
     width:170px;
@@ -85,6 +85,7 @@ body::before{
 
     z-index:1;
 }
+
 /* ☁️ CLOUD CONTAINER */
 
 .cloud-container{
@@ -107,7 +108,32 @@ body::before{
         inset 10px 10px 25px rgba(255,255,255,0.8),
         0 15px 35px rgba(0,0,0,0.15);
 
-    animation: float 6s ease-in-out infinite;
+    animation:float 6s ease-in-out infinite;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:20px;
+}
+
+/* 📝 CLOUD TEXT */
+
+.cloud-title{
+    font-size:clamp(24px, 2vw, 38px);
+    font-weight:800;
+    color:#2456b8;
+    margin-bottom:8px;
+    text-shadow:0 2px 6px rgba(255,255,255,.7);
+}
+
+.cloud-text{
+    font-size:clamp(14px, 1vw, 20px);
+    color:#3568cc;
+    font-weight:600;
+    max-width:80%;
+    line-height:1.4;
 }
 
 /* ☁️ fluffy cloud bumps */
@@ -349,29 +375,43 @@ body::before{
 
 <div class="cloud-container">
 
-    <section class="cloud-box mc-big"></section>
+    <section class="cloud-box mc-big">
+        <div class="cloud-title">Title</div>
+        <div class="cloud-text">Text</div>
+    </section>
 
     <section class="cloud-box mc-med horizontal-cloud">
-                <img src="images/Test.png" alt="Image" class="cloud-image">
+        <img src="images/Test.png" alt="Image" class="cloud-image">
     </section>
 
-    <section class="cloud-box mc-extra horizontal-cloud"><p>Text</p></section>
+    <section class="cloud-box mc-extra horizontal-cloud">
+        <div class="cloud-title">Title</div>
+        <div class="cloud-text">Text</div>
+    </section>
 
     <section class="cloud-box mc-img">
-<p>Text</p>
+        <div class="cloud-title">Title</div>
+        <div class="cloud-text">Text</div>
     </section>
 
-    <section class="cloud-box mc-small">Text</section>
+    <section class="cloud-box mc-small">
+        <div class="cloud-title">Title</div>
+        <div class="cloud-text">Text</div>
+    </section>
 
     <section class="cloud-box vertical-cloud v-cloud1">
-                <p>Text</p>     
+        <div class="cloud-title">Title</div>
+        <div class="cloud-text">Text</div>
     </section>
 
     <section class="cloud-box vertical-cloud v-cloud2">
-                <img src="images/Test.png" alt="Image" class="cloud-image">
+        <img src="images/Test.png" alt="Image" class="cloud-image">
     </section>
 
-    <section class="cloud-box horizontal-cloud h-cloud1"><p>Text</p></section>
+    <section class="cloud-box horizontal-cloud h-cloud1">
+        <div class="cloud-title">Title</div>
+        <div class="cloud-text">Text</div>
+    </section>
 
     <section class="cloud-box horizontal-cloud h-cloud2">
         <img src="images/Test.png" alt="Image" class="cloud-image">
