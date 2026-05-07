@@ -84,53 +84,53 @@ body::before{
 
 /* =========================
    SKY CENTER FEATURE (NEW)
-========================= */
-.sky-focus{
-    position:absolute;
-    top:48%;
-    left:50%;
-    transform:translate(-50%, -50%);
-    z-index:2;
-    pointer-events:none;
-}
-
-.sky-ring{
-    width:260px;
-    height:260px;
-    border-radius:50%;
-
-    background: radial-gradient(circle,
-        rgba(255,255,255,0.35) 0%,
-        rgba(120,200,255,0.15) 40%,
-        transparent 70%
-    );
-
-    border:2px solid rgba(255,255,255,0.25);
-
-    animation:pulse 4s ease-in-out infinite;
-}
-
-.sky-core{
+========================= */.sky-core-cloud{
     position:absolute;
     top:50%;
     left:50%;
     transform:translate(-50%, -50%);
 
-    padding:10px 18px;
-    border-radius:20px;
+    width:90px;
+    height:55px;
 
-    background:rgba(255,255,255,0.25);
-    backdrop-filter: blur(8px);
+    background: linear-gradient(to bottom, #ffffff, #dff4ff);
+    border-radius:50px;
 
-    font-size:16px;
-    font-weight:700;
-    color:#1f4fb8;
+    box-shadow:
+        inset -8px -8px 18px rgba(0,0,0,0.06),
+        inset 6px 6px 18px rgba(255,255,255,0.9),
+        0 10px 25px rgba(0,0,0,0.12);
+
+    animation: cloudDrift 5s ease-in-out infinite;
 }
 
-@keyframes pulse{
-    0%{ transform:scale(0.95); opacity:0.6; }
-    50%{ transform:scale(1.05); opacity:1; }
-    100%{ transform:scale(0.95); opacity:0.6; }
+/* fluffy bumps */
+.sky-core-cloud::before,
+.sky-core-cloud::after{
+    content:"";
+    position:absolute;
+    background:inherit;
+    border-radius:50%;
+}
+
+.sky-core-cloud::before{
+    width:55%;
+    height:75%;
+    top:-30%;
+    left:10%;
+}
+
+.sky-core-cloud::after{
+    width:45%;
+    height:65%;
+    top:-20%;
+    right:10%;
+}
+
+@keyframes cloudDrift{
+    0%{ transform:translate(-50%, -50%) translateY(0px); }
+    50%{ transform:translate(-50%, -50%) translateY(-6px); }
+    100%{ transform:translate(-50%, -50%) translateY(0px); }
 }
 
 /* =========================
@@ -309,10 +309,7 @@ body::before{
 <div class="sun"></div>
 
 <!-- ✨ NEW CENTER FEATURE -->
-<div class="sky-focus">
-    <div class="sky-ring"></div>
-    <div class="sky-core">Focus Zone</div>
-</div>
+<div class="sky-core-cloud"></div>
 
 <div class="cloud-container">
 
