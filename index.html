@@ -101,7 +101,6 @@ body::before{
 
     animation:float 6s ease-in-out infinite;
 
-    /* ⭐ FIX: center everything inside cloud */
     display:flex;
     justify-content:center;
     align-items:center;
@@ -179,6 +178,27 @@ body::before{
     right:15%;
 }
 
+/* 🌟 NEW WIDE CLOUD (REPLACEMENT) */
+.cloud-wide{
+    width:520px;
+    height:180px;
+    border-radius:120px;
+}
+
+.cloud-wide::before{
+    width:45%;
+    height:120%;
+    top:-35%;
+    left:10%;
+}
+
+.cloud-wide::after{
+    width:50%;
+    height:130%;
+    top:-40%;
+    right:12%;
+}
+
 /* 🌟 CORNER CLOUDS */
 .corner-cloud{
     position:absolute;
@@ -214,7 +234,6 @@ body::before{
 .v-cloud2{ width:140px; height:240px; top:18%; right:4%; }
 
 .h-cloud1{ width:260px; height:100px; top:75%; left:32%; }
-.h-cloud2{ width:240px; height:95px; top:28%; right:32%; }
 
 /* 🖼 IMAGE */
 .cloud-image{
@@ -223,7 +242,7 @@ body::before{
     object-fit:cover;
 }
 
-/* 📝 TEXT (CENTERED NOW) */
+/* 📝 TEXT */
 .cloud-title{
     font-size:30px;
     font-weight:800;
@@ -236,7 +255,6 @@ body::before{
     color:#3568cc;
 }
 
-/* 📱 MOBILE */
 @media(max-width:900px){
     .mc-big{ width:340px; height:220px; }
     .mc-med,.mc-extra,.mc-img{ transform:scale(.8); }
@@ -286,12 +304,9 @@ body::before{
         <img src="images/Test.png" class="cloud-image">
     </section>
 
-    <section class="cloud-box horizontal-cloud h-cloud1">
+    <!-- 🆕 replaced cloud -->
+    <section class="cloud-box cloud-wide h-cloud1">
         <p class="cloud-text">Text</p>
-    </section>
-
-    <section class="cloud-box horizontal-cloud h-cloud2">
-        <img src="images/Test.png" class="cloud-image">
     </section>
 
 </div>
