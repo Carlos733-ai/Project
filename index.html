@@ -86,7 +86,7 @@ body::before{
     height:100vh;
 }
 
-/* ☁️ MAIN CLOUD STYLE (UNCHANGED) */
+/* ☁️ MAIN CLOUD STYLE */
 .cloud-box{
     position:absolute;
     background:
@@ -100,9 +100,16 @@ body::before{
         0 15px 35px rgba(0,0,0,0.15);
 
     animation:float 6s ease-in-out infinite;
+
+    /* ⭐ FIX: center everything inside cloud */
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    flex-direction:column;
 }
 
-/* ☁️ fluffy cloud bumps (UNCHANGED) */
+/* ☁️ fluffy bumps */
 .cloud-box::before,
 .cloud-box::after{
     content:"";
@@ -172,7 +179,7 @@ body::before{
     right:15%;
 }
 
-/* 🌟 CORNER CLOUDS (UNCHANGED) */
+/* 🌟 CORNER CLOUDS */
 .corner-cloud{
     position:absolute;
     width:clamp(120px, 16vw, 220px);
@@ -196,7 +203,7 @@ body::before{
 .c1rotate-br{ bottom:-25px; right:-25px; transform:rotate(180deg); }
 .c1rotate-bl{ bottom:-25px; left:-25px; transform:rotate(270deg); }
 
-/* ☁️ CLOUD SIZES (UNCHANGED) */
+/* ☁️ SIZES */
 .mc-big{ width:460px; height:280px; top:50%; left:50%; transform:translate(-50%, -50%); z-index:5; }
 .mc-med{ width:280px; height:180px; top:12%; left:12%; }
 .mc-small{ width:190px; height:120px; bottom:14%; right:12%; }
@@ -216,25 +223,24 @@ body::before{
     object-fit:cover;
 }
 
-/* 📱 MOBILE */
-@media(max-width:900px){
-    .mc-big{ width:340px; height:220px; }
-    .mc-med,.mc-extra,.mc-img{ transform:scale(.8); }
-    .v-cloud1,.v-cloud2{ display:none; }
-}
-
-/* 📝 TEXT (fixed + consistent) */
+/* 📝 TEXT (CENTERED NOW) */
 .cloud-title{
     font-size:28px;
     font-weight:800;
     color:#2456b8;
-    margin-bottom:6px;
 }
 
 .cloud-text{
     font-size:16px;
     font-weight:600;
     color:#3568cc;
+}
+
+/* 📱 MOBILE */
+@media(max-width:900px){
+    .mc-big{ width:340px; height:220px; }
+    .mc-med,.mc-extra,.mc-img{ transform:scale(.8); }
+    .v-cloud1,.v-cloud2{ display:none; }
 }
 
 </style>
@@ -278,7 +284,7 @@ body::before{
     </section>
 
     <section class="cloud-box horizontal-cloud h-cloud1">
-        <p>Text</p>
+        <p class="cloud-text">Text</p>
     </section>
 
     <section class="cloud-box horizontal-cloud h-cloud2">
