@@ -22,7 +22,6 @@ html,body{
 }
 
 /* 🌅 SKY */
-
 body{
     position:relative;
     display:flex;
@@ -30,17 +29,17 @@ body{
     align-items:center;
 
     background:
-        radial-gradient(circle at top, rgba(255,255,255,0.25), transparent 35%),
+        radial-gradient(circle at top, rgba(255,255,255,0.18), transparent 35%),
         linear-gradient(
             to bottom,
             #ffb15e 0%,
-            #ff914d 18%,
-            #ff7a59 30%,
-            #4b8dff 72%,
+            #ff914d 8%,
+            #ff7a59 14%,
+            #5ca2ff 30%,
+            #2f7fff 65%,
             #1f5fd1 100%
         );
 }
-
 /* ✨ floating glow dust */
 
 body::before{
@@ -67,13 +66,14 @@ body::before{
 
 .sun{
     position:absolute;
-    top:50%;
+
+    top:40px;
     left:50%;
 
-    transform:translate(-50%, -50%);
+    transform:translateX(-50%);
 
-    width:190px;
-    height:190px;
+    width:170px;
+    height:170px;
     border-radius:50%;
 
     background:
@@ -85,7 +85,6 @@ body::before{
 
     z-index:1;
 }
-
 /* ☁️ CLOUD CONTAINER */
 
 .cloud-container{
