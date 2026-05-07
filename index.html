@@ -83,6 +83,57 @@ body::before{
 }
 
 /* =========================
+   SKY CENTER FEATURE (NEW)
+========================= */
+.sky-focus{
+    position:absolute;
+    top:48%;
+    left:50%;
+    transform:translate(-50%, -50%);
+    z-index:2;
+    pointer-events:none;
+}
+
+.sky-ring{
+    width:260px;
+    height:260px;
+    border-radius:50%;
+
+    background: radial-gradient(circle,
+        rgba(255,255,255,0.35) 0%,
+        rgba(120,200,255,0.15) 40%,
+        transparent 70%
+    );
+
+    border:2px solid rgba(255,255,255,0.25);
+
+    animation:pulse 4s ease-in-out infinite;
+}
+
+.sky-core{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
+
+    padding:10px 18px;
+    border-radius:20px;
+
+    background:rgba(255,255,255,0.25);
+    backdrop-filter: blur(8px);
+
+    font-size:16px;
+    font-weight:700;
+    color:#1f4fb8;
+}
+
+@keyframes pulse{
+    0%{ transform:scale(0.95); opacity:0.6; }
+    50%{ transform:scale(1.05); opacity:1; }
+    100%{ transform:scale(0.95); opacity:0.6; }
+}
+
+/* =========================
    CLOUD BASE
 ========================= */
 .cloud-container{
@@ -149,7 +200,7 @@ body::before{
 .horizontal-cloud{ border-radius:50px; }
 
 /* =========================
-   CLOUD POSITIONS (REORDERED CLEANLY)
+   CLOUD POSITIONS
 ========================= */
 
 .mc-big{
@@ -182,13 +233,6 @@ body::before{
     left:10%;
 }
 
-.mc-small{
-    width:190px;
-    height:120px;
-    bottom:10%;
-    right:10%;
-}
-
 .v-cloud1{
     width:150px;
     height:280px;
@@ -203,18 +247,10 @@ body::before{
     right:1%;
 }
 
-.h-cloud1{
-    width:260px;
-    height:100px;
-    top:72%;
-    left:50%;
-    transform:translateX(-50%);
-}
-
 /* =========================
-   FIXED IMAGE CLOUD
+   IMAGE CLOUD
 ========================= */
-    .cloud-wide{
+.cloud-wide{
     position:absolute;
 
     width:260px;
@@ -234,7 +270,7 @@ body::before{
         inset 10px 10px 25px rgba(255,255,255,0.8),
         0 15px 35px rgba(0,0,0,0.15);
 }
-/* image fit */
+
 .cloud-image{
     width:100%;
     height:100%;
@@ -257,27 +293,6 @@ body::before{
 }
 
 /* =========================
-   CORNER CLOUDS
-========================= */
-.corner-cloud{
-    position:absolute;
-    width:clamp(120px, 16vw, 220px);
-    height:clamp(120px, 16vw, 220px);
-    background:white;
-    opacity:.95;
-    mask-size:contain;
-    mask-repeat:no-repeat;
-    -webkit-mask-size:contain;
-    -webkit-mask-repeat:no-repeat;
-    z-index:20;
-}
-
-.c1rotate-tl{ top:-25px; left:-25px; }
-.c1rotate-tr{ top:-25px; right:-25px; transform:rotate(90deg); }
-.c1rotate-br{ bottom:-25px; right:-25px; transform:rotate(180deg); }
-.c1rotate-bl{ bottom:-25px; left:-25px; transform:rotate(270deg); }
-
-/* =========================
    MOBILE
 ========================= */
 @media(max-width:900px){
@@ -292,6 +307,12 @@ body::before{
 <body>
 
 <div class="sun"></div>
+
+<!-- ✨ NEW CENTER FEATURE -->
+<div class="sky-focus">
+    <div class="sky-ring"></div>
+    <div class="sky-core">Focus Zone</div>
+</div>
 
 <div class="cloud-container">
 
@@ -312,8 +333,6 @@ body::before{
         <div class="cloud-text">Text</div>
     </section>
 
-    
-
     <section class="cloud-box v-cloud1 vertical-cloud">
         <div class="cloud-text">Text</div>
     </section>
@@ -327,6 +346,5 @@ body::before{
     </section>
 
 </div>
-
 
 </body></html>
