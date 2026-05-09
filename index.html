@@ -94,23 +94,32 @@ body::before{
 .cloud-box{
     position:absolute;
 
-    background: linear-gradient(to bottom, #dff4ff 0%, #b9e4ff 100%);
-    border-radius:50%;
-    overflow:hidden;
-
-    box-shadow:
-        inset -15px -15px 25px rgba(0,0,0,0.06),
-        inset 10px 10px 25px rgba(255,255,255,0.8),
-        0 15px 35px rgba(0,0,0,0.15);
+    background:linear-gradient(to bottom,#ffffff 0%,#f2f8ff 100%);
+    border-radius:999px;
 
     display:flex;
     justify-content:center;
     align-items:center;
-    flex-direction:column;
     text-align:center;
+
+    box-shadow:0 15px 35px rgba(0,0,0,0.12);
 
     animation:float 6s ease-in-out infinite;
 }
+
+/* smooth cloud blobs */
+.cloud-circle{
+    position:absolute;
+    background:inherit;
+    border-radius:50%;
+}
+
+/* natural cluster */
+.c1{ width:60%; height:85%; left:5%; top:10%; }
+.c2{ width:70%; height:100%; left:22%; top:-25%; }
+.c3{ width:60%; height:85%; right:5%; top:10%; }
+.c4{ width:45%; height:65%; left:50%; top:-10%; }
+.c5{ width:40%; height:55%; right:20%; top:25%; }
 
 @keyframes float{
     0%{ transform:translateY(0px); }
@@ -118,50 +127,16 @@ body::before{
     100%{ transform:translateY(0px); }
 }
 
-/* fluffy bumps */
-.cloud-box::before,
-.cloud-box::after{
-    content:"";
-    position:absolute;
-    background:inherit;
-    border-radius:50%;
-    z-index:-1;
-}
-
-.cloud-box::before{
-    width:55%;
-    height:60%;
-    top:-18%;
-    left:12%;
-}
-
-.cloud-box::after{
-    width:45%;
-    height:50%;
-    top:-10%;
-    right:15%;
-}
-
 /* =========================
-   SHAPES
-========================= */
-.vertical-cloud{ border-radius:45%; }
-.horizontal-cloud{ border-radius:50px; }
-
-/* =========================
-   CLOUD POSITIONS
+   POSITIONS
 ========================= */
 
 .mc-big{
     width:360px;
     height:220px;
-
-    /* moved to the RIGHT of the sun */
     top:18%;
     left:52%;
-
     transform:translate(-50%, -50%);
-    z-index:5;
 }
 
 .mc-med{
@@ -185,81 +160,125 @@ body::before{
     left:10%;
 }
 
-/* LONG CLOUD — more down and more right */
 .mc-new{
     width:430px;
     height:210px;
-
-    top:420px;                /* further down */
-    left: calc(50% - 250px);  /* further right */
-
+    top:420px;
+    left: calc(50% - 250px);
     transform: translateX(-50%);
-    z-index:4;
 }
 
-.v-cloud1{
+/* =========================
+   VERTICAL CLOUDS FIXED
+========================= */
+
+.v-cloud1,
+.v-cloud2{
+    position:absolute;
+
     width:150px;
-    height:280px;
+    height:260px;
+
+    background:linear-gradient(to bottom,#ffffff 0%,#f2f8ff 100%);
+    border-radius:80px;
+
+    box-shadow:0 15px 35px rgba(0,0,0,0.12);
+
+    animation:float 6s ease-in-out infinite;
+}
+
+/* stacked cloud blobs */
+.v-cloud1::before,
+.v-cloud1::after,
+.v-cloud2::before,
+.v-cloud2::after{
+    content:"";
+    position:absolute;
+    background:inherit;
+    border-radius:50%;
+}
+
+/* top blob */
+.v-cloud1::before,
+.v-cloud2::before{
+    width:95px;
+    height:95px;
+    top:-30px;
+    left:25px;
+}
+
+/* bottom blob */
+.v-cloud1::after,
+.v-cloud2::after{
+    width:110px;
+    height:110px;
+    top:70px;
+    left:10px;
+}
+
+/* positions */
+.v-cloud1{
     top:32%;
     left:1%;
 }
 
 .v-cloud2{
-    width:140px;
-    height:240px;
     top:30%;
     right:1%;
 }
 
-.h-cloud1{
-    width:260px;
-    height:100px;
-    top:72%;
-    left:50%;
-    transform:translateX(-50%);
-}
+/* =========================
+   IMAGE CLOUD
+========================= */
 
-/* IMAGE CLOUD */
 .cloud-wide{
     position:absolute;
-
     width:260px;
     height:360px;
-
     top:50%;
     left:80%;
-
     transform:translate(-50%, -50%);
-    z-index:6;
-
-    border-radius:35px;
+    border-radius:45px;
     overflow:hidden;
-
-    box-shadow:
-        inset -15px -15px 25px rgba(0,0,0,0.06),
-        inset 10px 10px 25px rgba(255,255,255,0.8),
-        0 15px 35px rgba(0,0,0,0.15);
+    background:linear-gradient(to bottom,#ffffff 0%,#f2f8ff 100%);
 }
 
-.cloud-image{
+.cloud-wide img{
     width:100%;
     height:100%;
-    object-fit:contain;
+    object-fit:cover;
+    display:block;
 }
 
 /* =========================
    TEXT
 ========================= */
+
 .cloud-title{
     font-size:30px;
     font-weight:800;
     color:#2456b8;
+    z-index:2;
 }
 
 .cloud-text{
     font-size:19px;
     font-weight:600;
     color:#3568cc;
+    z-index:2;
+}
+
+/* =========================
+   GRASS
+========================= */
+
+.grass{
+    position:absolute;
+    bottom:0;
+    left:0;
+    width:100%;
+    height:55px;
+    background:#38b24a;
 }
 
 </style>
@@ -272,43 +291,44 @@ body::before{
 <div class="cloud-container">
 
     <section class="cloud-box mc-big">
+        <div class="cloud-circle c1"></div>
+        <div class="cloud-circle c2"></div>
+        <div class="cloud-circle c3"></div>
+        <div class="cloud-circle c4"></div>
+        <div class="cloud-circle c5"></div>
         <div class="cloud-title">Spend time away from screens</div>
-        
     </section>
 
-    <section class="cloud-box mc-med horizontal-cloud">
+    <section class="cloud-box mc-med">
+        <div class="cloud-circle c1"></div><div class="cloud-circle c2"></div><div class="cloud-circle c3"></div>
         <div class="cloud-text">Text</div>
     </section>
 
-    <section class="cloud-box mc-extra horizontal-cloud">
+    <section class="cloud-box mc-extra">
+        <div class="cloud-circle c1"></div><div class="cloud-circle c2"></div><div class="cloud-circle c3"></div>
         <div class="cloud-text">Text</div>
     </section>
 
     <section class="cloud-box mc-img">
+        <div class="cloud-circle c1"></div><div class="cloud-circle c2"></div><div class="cloud-circle c3"></div>
         <div class="cloud-text">Text</div>
     </section>
 
-    <!-- LONG EXTENDED CLOUD -->
-    <section class="cloud-box mc-new horizontal-cloud">
+    <section class="cloud-box mc-new">
+        <div class="cloud-circle c1"></div><div class="cloud-circle c2"></div><div class="cloud-circle c3"></div>
         <div class="cloud-text">Text</div>
     </section>
 
-    <section class="cloud-box v-cloud1 vertical-cloud">
-        <div class="cloud-text">Text</div>
-    </section>
+    <section class="v-cloud1"></section>
+    <section class="v-cloud2"></section>
 
-    <section class="cloud-box v-cloud2 vertical-cloud">
-        <div class="cloud-text">Text</div>
-    </section>
-
-    <section class="cloud-box cloud-wide">
-        <img src="images/Test.png" class="cloud-image">
+    <section class="cloud-wide">
+        <img src="images/Test.png" alt="cloud image">
     </section>
 
 </div>
 
-
-
+<div class="grass"></div>
 
 
 </body></html>
