@@ -1,13 +1,13 @@
-<html><head><meta charset="UTF-8">
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Stop using social media</title>
+<title>Stop Using Social Media</title>
 
 <style>
-
-/* =========================
-   RESET
-========================= */
 
 *{
     margin:0;
@@ -15,25 +15,23 @@
     box-sizing:border-box;
 }
 
-html,body{
+html,
+body{
     width:100%;
     height:100%;
     overflow:hidden;
     font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
 }
 
-/* =========================
-   SKY
-========================= */
-
 body{
     position:relative;
-    overflow:hidden;
 
     background:
-        radial-gradient(circle at top,
-        rgba(255,255,255,0.18),
-        transparent 35%),
+        radial-gradient(
+            circle at top,
+            rgba(255,255,255,0.18),
+            transparent 35%
+        ),
 
         linear-gradient(
             to bottom,
@@ -46,19 +44,17 @@ body{
         );
 }
 
-/* =========================
-   SPARKLES
-========================= */
-
 body::before{
     content:"";
     position:absolute;
     inset:0;
 
     background-image:
-        radial-gradient(circle,
-        rgba(255,255,255,0.22) 1px,
-        transparent 1px);
+        radial-gradient(
+            circle,
+            rgba(255,255,255,0.22) 1px,
+            transparent 1px
+        );
 
     background-size:40px 40px;
 
@@ -70,7 +66,7 @@ body::before{
 @keyframes sparkleMove{
 
     from{
-        transform:translateY(0px);
+        transform:translateY(0);
     }
 
     to{
@@ -79,9 +75,53 @@ body::before{
 
 }
 
-/* =========================
-   SUN
-========================= */
+@keyframes float{
+
+    0%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-10px);
+    }
+
+    100%{
+        transform:translateY(0);
+    }
+
+}
+
+.github-btn{
+    position:absolute;
+
+    top:16px;
+    left:16px;
+
+    padding:10px 20px;
+
+    border-radius:999px;
+    border:none;
+
+    background:rgba(255,255,255,0.08);
+
+    backdrop-filter:blur(10px);
+
+    color:white;
+
+    text-decoration:none;
+
+    font-size:14px;
+    font-weight:700;
+
+    z-index:999;
+
+    transition:.25s;
+}
+
+.github-btn:hover{
+    background:rgba(255,255,255,0.18);
+    transform:translateY(-2px);
+}
 
 .sun{
     position:absolute;
@@ -97,10 +137,12 @@ body::before{
     border-radius:50%;
 
     background:
-        radial-gradient(circle,
-        #fff8c7 0%,
-        #ffd54f 45%,
-        #ffb100 100%);
+        radial-gradient(
+            circle,
+            #fff8c7 0%,
+            #ffd54f 45%,
+            #ffb100 100%
+        );
 
     box-shadow:
         0 0 40px rgba(255,220,120,.7),
@@ -109,29 +151,30 @@ body::before{
     z-index:1;
 }
 
-/* =========================
-   CLOUD CONTAINER
-========================= */
-
 .cloud-container{
     position:relative;
     width:100vw;
     height:100vh;
 }
 
-/* =========================
-   CLOUD BASE
-========================= */
-
-.cloud-box{
-    position:absolute;
-
+.cloud-box,
+.image-cloud,
+.cloud-wide{
     background:
         linear-gradient(
             to bottom,
             #ffffff 0%,
             #f1f8ff 100%
         );
+
+    box-shadow:
+        0 15px 35px rgba(0,0,0,0.12);
+
+    animation:float 6s ease-in-out infinite;
+}
+
+.cloud-box{
+    position:absolute;
 
     border-radius:999px;
 
@@ -141,16 +184,7 @@ body::before{
     text-align:center;
 
     overflow:hidden;
-
-    box-shadow:
-        0 15px 35px rgba(0,0,0,0.12);
-
-    animation:float 6s ease-in-out infinite;
 }
-
-/* =========================
-   CLOUD BLOBS
-========================= */
 
 .cloud-circle{
     position:absolute;
@@ -193,30 +227,6 @@ body::before{
     top:28%;
 }
 
-/* =========================
-   FLOAT
-========================= */
-
-@keyframes float{
-
-    0%{
-        transform:translateY(0px);
-    }
-
-    50%{
-        transform:translateY(-10px);
-    }
-
-    100%{
-        transform:translateY(0px);
-    }
-
-}
-
-/* =========================
-   MAIN CLOUD
-========================= */
-
 .mc-big{
     width:390px;
     height:230px;
@@ -240,10 +250,6 @@ body::before{
     color:#2456b8;
 }
 
-/* =========================
-   SMALL CLOUDS
-========================= */
-
 .mc-med{
     width:280px;
     height:170px;
@@ -260,22 +266,29 @@ body::before{
     right:6%;
 }
 
-.cloud-text{
+.big-text-content{
     position:relative;
     z-index:2;
 
-    width:70%;
+    padding:35px;
+}
 
-    font-size:22px;
-    font-weight:700;
-    line-height:1.4;
+.big-text-content h2{
+    font-size:44px;
+    font-weight:800;
+
+    margin-bottom:16px;
+
+    color:#2456b8;
+}
+
+.big-text-content p{
+    font-size:21px;
+    line-height:1.8;
+    font-weight:600;
 
     color:#3568cc;
 }
-
-/* =========================
-   IMAGE CLOUDS
-========================= */
 
 .image-row{
     position:absolute;
@@ -283,7 +296,7 @@ body::before{
     top:260px;
     left:120px;
 
-    width:400px;
+    width:420px;
     height:500px;
 
     z-index:5;
@@ -298,21 +311,7 @@ body::before{
     border-radius:999px;
 
     overflow:hidden;
-
-    background:
-        linear-gradient(
-            to bottom,
-            #ffffff 0%,
-            #f1f8ff 100%
-        );
-
-    box-shadow:
-        0 15px 35px rgba(0,0,0,0.12);
-
-    animation:float 6s ease-in-out infinite;
 }
-
-/* first image */
 
 .image-cloud:first-child{
     top:0;
@@ -320,8 +319,6 @@ body::before{
 
     transform:rotate(-2deg);
 }
-
-/* second image moved UNDER first */
 
 .image-cloud:last-child{
     top:220px;
@@ -345,10 +342,6 @@ body::before{
     z-index:2;
 }
 
-/* =========================
-   BIG TEXT CLOUD
-========================= */
-
 .big-text-cloud{
     width:760px;
     height:250px;
@@ -357,94 +350,11 @@ body::before{
     bottom:90px;
 }
 
-.big-text-content{
-    position:relative;
-    z-index:2;
-
-    padding:45px;
-}
-
-.big-text-content h2{
-    font-size:44px;
-    font-weight:800;
-
-    margin-bottom:16px;
-
-    color:#2456b8;
-}
-
-.big-text-content p{
-    font-size:21px;
-    line-height:1.8;
-    font-weight:600;
-
-    color:#3568cc;
-}
-
-/* =========================
-   SIDE CLOUD
-========================= */
-
-.v-cloud1{
-    position:absolute;
-
-    width:150px;
-    height:260px;
-
-    top:34%;
-    left:1%;
-
-    border-radius:80px;
-
-    background:
-        linear-gradient(
-            to bottom,
-            #ffffff 0%,
-            #f1f8ff 100%
-        );
-
-    box-shadow:
-        0 15px 35px rgba(0,0,0,0.12);
-
-    animation:float 6s ease-in-out infinite;
-}
-
-.v-cloud1::before,
-.v-cloud1::after{
-    content:"";
-    position:absolute;
-
-    border-radius:50%;
-    background:inherit;
-}
-
-.v-cloud1::before{
-    width:95px;
-    height:95px;
-
-    top:-28px;
-    left:26px;
-}
-
-.v-cloud1::after{
-    width:110px;
-    height:110px;
-
-    top:70px;
-    left:10px;
-}
-
-/* =========================
-   RIGHT POSTER IMAGE
-========================= */
-
 .cloud-wide{
     position:absolute;
 
     width:260px;
     height:360px;
-
-    /* moved UP and LEFT */
 
     top:37%;
     left:82%;
@@ -454,18 +364,6 @@ body::before{
     border-radius:45px;
 
     overflow:hidden;
-
-    background:
-        linear-gradient(
-            to bottom,
-            #ffffff 0%,
-            #f1f8ff 100%
-        );
-
-    box-shadow:
-        0 15px 35px rgba(0,0,0,0.12);
-
-    animation:float 6s ease-in-out infinite;
 }
 
 .cloud-wide img{
@@ -475,10 +373,6 @@ body::before{
     object-fit:cover;
     display:block;
 }
-
-/* =========================
-   GRASS
-========================= */
 
 .grass{
     position:absolute;
@@ -500,13 +394,17 @@ body::before{
 
 <body>
 
-<!-- SUN -->
+<a
+    class="github-btn"
+    href="https://github.com/Carlos733-ai/Project/"
+    target="_blank"
+>
+    Code
+</a>
 
 <div class="sun"></div>
 
 <div class="cloud-container">
-
-    <!-- MAIN CLOUD -->
 
     <section class="cloud-box mc-big">
 
@@ -517,12 +415,10 @@ body::before{
         <div class="cloud-circle c5"></div>
 
         <div class="cloud-title">
-            Spend time away from screens
+            Spend Time Away From Screens
         </div>
 
     </section>
-
-    <!-- LEFT CLOUD -->
 
     <section class="cloud-box mc-med">
 
@@ -530,16 +426,15 @@ body::before{
         <div class="cloud-circle c2"></div>
         <div class="cloud-circle c3"></div>
 
-                <div class="big-text-content">
+        <div class="big-text-content">
 
-            
+            <p>
+                Use your phone settings to limit social apps to 30–60 minutes a day.
+            </p>
 
-            <p>Use your phone’s settings to limit social apps to 30–60 minutes a day.</p>
-</div>
+        </div>
 
     </section>
-
-    <!-- RIGHT CLOUD -->
 
     <section class="cloud-box mc-extra">
 
@@ -549,18 +444,15 @@ body::before{
 
         <div class="big-text-content">
 
-            
+            <p>
+                Set specific no-tech zones such as during family meals.
+            </p>
 
-            <p>set specific "no-tech zones," such as during family meals</p>
-</div>
+        </div>
 
     </section>
 
-    <!-- IMAGE CLOUDS -->
-
     <div class="image-row">
-
-        <!-- IMAGE 1 -->
 
         <section class="image-cloud">
 
@@ -571,8 +463,6 @@ body::before{
             <img src="images/image2.png">
 
         </section>
-
-        <!-- IMAGE 2 -->
 
         <section class="image-cloud">
 
@@ -586,8 +476,6 @@ body::before{
 
     </div>
 
-    <!-- BIG TEXT CLOUD -->
-
     <section class="cloud-box big-text-cloud">
 
         <div class="cloud-circle c1"></div>
@@ -600,32 +488,23 @@ body::before{
 
             <h2>Be Active</h2>
 
-            <p>Instead of "doomscrolling" (mindlessly looking at bad news), send a kind message to a friend or comment something supportive.</p>
+            <p>
+                Instead of doomscrolling, send a kind message to a friend or comment something supportive.
+            </p>
 
         </div>
 
     </section>
 
-    <!-- SIDE CLOUD -->
-
-    
-
-    <!-- RIGHT IMAGE -->
-
     <section class="cloud-wide">
 
-        <img src="images/image.png" alt="Poster image">
+        <img src="images/image.png" alt="Poster Image">
 
     </section>
 
 </div>
 
-<!-- GRASS -->
-
 <div class="grass"></div>
 
-
-
-
-
-</body></html>
+</body>
+</html>
